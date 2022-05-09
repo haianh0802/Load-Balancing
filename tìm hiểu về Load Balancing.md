@@ -38,7 +38,7 @@ Ngoài load balancing L4 và L7 cơ bản, Global server load balancing (cân b�
 
 Khi các ứng dụng ngày các được lưu trữ trong các trung tâm dữ liệu đám mây nằm ở nhiều khu vực địa lý, GSLB cho phép các tổ chức CNTT cung cấp các ứng dụng có độ tin cậy cao hơn và độ trễ thấp hơn cho bất kỳ thiết bị hoặc vị trí nào. Làm như vậy đảm bảo trải nghiệm nhất quán hơn cho end user khi họ đang điều hướng nhiều ứng dụng và dịch vụ trong không gian làm việc số. 
 
-**Một số thuật toán Load balancer (cân bằng tải) phổ biến **
+**Một số thuật toán Load balancer (cân bằng tải) phổ biến**
 
 - Round Robin: Round robin là một kỹ thuật vòng tròn đơn giản, giúp đảm bảo rằng các truy vấn dịch vụ sẽ lần lượt được gửi tới các máy chủ theo thứ tự sắp xếp. 
 
@@ -52,7 +52,7 @@ Khi các ứng dụng ngày các được lưu trữ trong các trung tâm dữ 
 
 - Custom Load: Thuật toán này cho phép bộ cân bằng tải truy vấn tải trên các máy chủ riêng lẻ thông qua SNMP.
 
-**Lợi ích của việc sử dụng load balancer cho server? **
+**Lợi ích của việc sử dụng load balancer cho server?**
 
 - Uptime 99.9%: Với Load Balancing, khi máy chủ gặp sự cố, lưu lượng truy cập sẽ được tự động chuyển đến máy chủ còn lại. Nhờ đó, trong hầu hết mọi trường hợp, sự cố bất ngờ có thể được phát hiện và xử lý kịp thời, không làm gián đoạn các truy cập của người dùng.
 
@@ -71,3 +71,24 @@ TCP: trong một số trường hợp khi ứng dụng không sử dụng giao t
 
 UDP: trong thời gian gần đây, Load Balancer đã bổ sung thêm hỗ trợ cho cân bằng tải giao thức internet lõi như DNS và syslogd sử dụng UDP.
 Các quy tắc chuyển tiếp sẽ xác định loại giao thức và cổng vào Load Balancer để di chuyển đến các giao thức. Cổng Load Balancer lúc này được sử dụng để định tuyến lưu lượng trên backend.
+
+### Khi nào sử dụng Load balancer (Cân bằng tải)?
+Load balancer (Cân bằng tải) đước sử dụng khi website của bạn được triển khai trên nhiều hơn một cloud server.
+
+**Sau đây là 2 khó khăn chính bạn sẽ gặp phải nếu chỉ triển khai website của mình trên một server duy nhất:**
+
+- Không thể đảm bảo xử lý được lượng traffic của một khối lượng user lớn truy cập vào website (đủ lớn để 1 cloud server không thể tải nổi).
+
+Cụ thể, khi hệ thống của bạn có quá nhiều người sử dụng, một server đơn lẻ không thể đáp ứng được lượng requests khổng lồ được gửi đến cùng lúc. Bạn cần chia sẻ công việc của server hiện tại với một hoặc nhiều server khác nữa. Tức là sử dụng nhiều server một lúc, khi này, việc tải dữ liệu từ server nào sẽ do bộ Load balancer (Cân bằng tải)  quyết định.
+
+- Không đảm bảo tính sẵn sàng của dịch vụ doanh nghiệp (nếu chỉ sử dụng duy nhất 1 cloud server, khi cloud server này gặp sự cố, không hề có server nào có thể thay thế tiếp tục các tiến trình đang dang dở, đấn đến website rơi vào tình trạng downtime theo). Gây tổn thất và ảnh hưởng to lớn đến trải nghiệm người dùng, doanh thu, uy tín và hiệu quả hoạt động của doanh nghiệp.
+
+Đó chính là lý do mà chúng ta phải triển khai website trên nhiều cloud server cùng một lúc, bởi vì không có gì đảm bảo cho việc một server sẽ luôn hoạt động trơn tru và hoàn hảo mãi mãi. Bằng cách triển khai nhiều, khi server gặp sự cố, server còn lại ngay lập tức là phương án hỗ trợ, không làm gián đoạn hoạt động của doanh nghiệp. Trên thực tế, những tổn thất do hệ thống thông tin ngừng hoạt động là cực kỳ to lớn và không thể lường trước được.
+
+**Tuy nhiên, khi triển khai website lên nhiều server, hiệu quả là vậy nhưng bạn vẫn chắc chắn sẽ gặp phải các khó khăn tiếp theo sau đây:**
+
+Triển khai nhiều cloud servers, tức đồng thời bạn sẽ sở hữu nhiều địa chỉ của các cloud servers. Trong khi đó, một domain website lại không thể trỏ về nhiều địa chỉ cùng một lúc.
+
+Bạn càng sở hữu nhiều servers, việc quản trị, triển khai và bảo trì càng trở nên phức tạp và khó khăn gấp nhiều lần. Đòi hỏi tính chuyên môn và kĩ thuật cao, chưa kể chi phí cho các thao tác này.
+
+Lúc này, Load balancer (Cân bằng tải) chính là câu trả lời và là giải pháp tuyệt vời có thế giải quyết hoàn hảo triệt để các vấn đề kể trên.
