@@ -6,7 +6,7 @@ Load balancing (cân bằng tải) được định nghĩa là phân phối lưu
 
 Load balancing (cân bằng tải) phân phối đồng đều tài nguyên trên nhiều máy chủ. Kỹ thuật này giúp giảm thời gian phản hồi, tăng (throughput) năng suất truyền tải và nói chung tăng tốc độ truy xuất dữ liệu cho mỗi khách hàng. Bằng cách áp dụng giải pháp này, đem đến việc cân bằng khi lưu lượng truy cập được chia đều lên các server hoặc khi server gặp sự cố, server còn lại ngay lập tức là phương án hỗ trợ, không làm gián đoạn sự truy cập và hoạt động của doanh nghiệp.
 
-### Load balancer hoạt động như thế nào?
+### Load balancing hoạt động như thế nào?
 
 Các website hiện đại có lưu lượng truy cập cao phải phục vụ hàng trăm nghìn, thậm chí hàng triệu các requests đồng thời từ người dùng hoặc khách hàng, đồng thời phải phản hồi chính xác lại các văn bản, hình ảnh, video hoặc dữ liệu ứng dụng, tất cả đều được thực hiện rất nhanh chóng và đáng tin cậy. Để đáp ứng hiệu quả khối lượng lớn các yêu cầu và phản hồi một cách tiết kiệm nhất, best practice tốt nhất thường sẽ là sử dụng thêm servers.
 
@@ -14,7 +14,7 @@ Một load balancer (Cân bằng tải) hoạt động như "traffic cop" (cản
 
 Nếu một server đơn lẻ bị hỏng, cân bằng tải (load balancer) sẽ chuyển hướng lưu lượng truy cập đến các server trực tuyến còn lại. Khi một server mới được thêm vào nhóm máy chủ, bộ cân bằng tải sẽ tự động bắt đầu gửi yêu cầu đến máy chủ mới thêm này.
 
-**Tóm lại, một load balancer sẽ thực hiện các chức năng chính sau đây:** 
+**Tóm lại, một load balancing sẽ thực hiện các chức năng chính sau đây:** 
 
 - Phân phối lưu lượng đến các server khác nhau trong nhóm tài nguyên để đảm bảo rằng không có server nào bị quá tải. 
 
@@ -38,7 +38,7 @@ Ngoài load balancing L4 và L7 cơ bản, Global server load balancing (cân b�
 
 Khi các ứng dụng ngày các được lưu trữ trong các trung tâm dữ liệu đám mây nằm ở nhiều khu vực địa lý, GSLB cho phép các tổ chức CNTT cung cấp các ứng dụng có độ tin cậy cao hơn và độ trễ thấp hơn cho bất kỳ thiết bị hoặc vị trí nào. Làm như vậy đảm bảo trải nghiệm nhất quán hơn cho end user khi họ đang điều hướng nhiều ứng dụng và dịch vụ trong không gian làm việc số. 
 
-**Một số thuật toán Load balancer (cân bằng tải) phổ biến**
+**Một số thuật toán Load balancing (cân bằng tải) phổ biến**
 
 - Round Robin: Round robin là một kỹ thuật vòng tròn đơn giản, giúp đảm bảo rằng các truy vấn dịch vụ sẽ lần lượt được gửi tới các máy chủ theo thứ tự sắp xếp. 
 
@@ -52,7 +52,7 @@ Khi các ứng dụng ngày các được lưu trữ trong các trung tâm dữ 
 
 - Custom Load: Thuật toán này cho phép bộ cân bằng tải truy vấn tải trên các máy chủ riêng lẻ thông qua SNMP.
 
-**Lợi ích của việc sử dụng load balancer cho server?**
+**Lợi ích của việc sử dụng load balancing cho server?**
 
 - Uptime 99.9%: Với Load Balancing, khi máy chủ gặp sự cố, lưu lượng truy cập sẽ được tự động chuyển đến máy chủ còn lại. Nhờ đó, trong hầu hết mọi trường hợp, sự cố bất ngờ có thể được phát hiện và xử lý kịp thời, không làm gián đoạn các truy cập của người dùng.
 
@@ -61,7 +61,7 @@ Khi các ứng dụng ngày các được lưu trữ trong các trung tâm dữ 
 - Tăng bảo mật cho Datacenter: Bằng cách sử dụng Load Balancing, những yêu cầu từ người dùng sẽ được tiếp nhận và xử lý trước khi phân chia đến các máy chủ. Đồng thời, quá trình phản hồi cũng được thông qua Load Balancing, ngăn cản việc người dùng giao tiếp trực tiếp với máy chủ, ẩn đi thông tin và cấu trúc mạng nội bộ, từ đó chặn đứng những cuộc tấn công mạng hay truy cập trái phép…
 Load balancer luôn đóng một vai trò quan trọng trong quá trình hoạt động hiệu quả và giảm thiểu những rủi ro cho doanh nghiệp. Đây một trong những thành phần cơ sở hạ tầng quan trọng nhất của ngành mạng máy tính hiện nay. Hãy đảm bảo sự hài lòng của khách hàng truy cập website bằng cách sử dụng giải pháp Load Balancing này.
 
-**Có 4 loại giao thức chính mà quản trị Load Balancer có thể tạo quy định chuyển tiếp:**
+**Có 4 loại giao thức chính mà quản trị Load Balancing có thể tạo quy định chuyển tiếp:**
 
 HTTP: dựa trên cơ chế HTTP chuẩn, HTTP Balancing đưa ra yêu cầu tác vụ. Load Balancer đặt X-Forwarded-For, X-Forwarded-Proto và tiêu đề X-Forwarded-Port cung cấp các thông tin backends về những yêu cầu ban đầu.
 
@@ -72,7 +72,7 @@ TCP: trong một số trường hợp khi ứng dụng không sử dụng giao t
 UDP: trong thời gian gần đây, Load Balancer đã bổ sung thêm hỗ trợ cho cân bằng tải giao thức internet lõi như DNS và syslogd sử dụng UDP.
 Các quy tắc chuyển tiếp sẽ xác định loại giao thức và cổng vào Load Balancer để di chuyển đến các giao thức. Cổng Load Balancer lúc này được sử dụng để định tuyến lưu lượng trên backend.
 
-### Khi nào sử dụng Load balancer (Cân bằng tải)?
+### Khi nào sử dụng Load balancing (Cân bằng tải)?
 Load balancer (Cân bằng tải) đước sử dụng khi website của bạn được triển khai trên nhiều hơn một cloud server.
 
 **Sau đây là 2 khó khăn chính bạn sẽ gặp phải nếu chỉ triển khai website của mình trên một server duy nhất:**
